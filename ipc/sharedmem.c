@@ -21,10 +21,11 @@ int main(int argc, char *argv[])
       exit (1);
     }
 
-    if ((key = ftok("shmdemo.c", 'R')) == -1) {
-        perror("ftok");
-        exit(1);
-    }
+   // if ((key = ftok("shmdemo.c", 'R')) == -1) {
+   //     printf("here");
+   //     perror("ftok");
+   //     exit(1);
+   // }
 
     /* connect to the segment: */
     if ((shmid = shmget(key, SHM_SIZE, 0644 | IPC_CREAT)) == -1) 

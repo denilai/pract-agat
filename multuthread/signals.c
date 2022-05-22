@@ -5,10 +5,11 @@
 #include <signal.h>
 
 void sigint_handler(int sig){
-  printf("\n===handle SIGTERM===\n");
+  printf("\n=== handle SIGTERM ===\n\n");
 }
 
 int main (int argc, char* argv[]){
+  setbuf(stdout, NULL); /* stdout не буферизуется */
   int pid = fork();
   int chpid = getpid();
   if (pid == -1) {
@@ -17,7 +18,7 @@ int main (int argc, char* argv[]){
   if (pid == 0){
       void sigint_handler(int sig);
       char s[200];
-      struct sigaction sa; /* обьявление структуры для обработки сигнала */
+      struct sigaction sa; 
       
       sa.sa_handler = sigint_handler;
       sa.sa_flags = 0;
@@ -34,9 +35,11 @@ int main (int argc, char* argv[]){
     return 0;
   }
   else {
-    printf("Send SIGKILL signal to child process with PID = %d\n", pid);
-    sleep(3);
-    kill(pid, SIGTERM);
+    while (1){
+      printf("Send SIGKILL signal to child process with PID = %d every 4 seconds\n", pid);
+      sleep(3);
+      kill(pid, SIGTERM);
+    }
     wait(NULL);
     
   }

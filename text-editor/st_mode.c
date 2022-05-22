@@ -1,5 +1,7 @@
 #include <sys/stat.h>
 #include <limits.h>
 
-int main(int argc, char **argv){
+int main1(int argc, char **argv){
+  return 0;
+}
 

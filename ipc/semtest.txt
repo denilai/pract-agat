@@ -1,0 +1,2 @@
+Caprture file for write. Thread 1
+Caprture file for write. Thread 2

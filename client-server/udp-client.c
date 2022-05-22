@@ -14,7 +14,7 @@ int main()
    struct sockaddr_in serverAddr;
    char buffer[1024];
    socklen_t addr_size;
-   sockfd = socket(PF_INET, SOCK_DGRAM, 0);
+   sockfd = socket(PF_INET, SOCK_STREAM, 0);
    memset(&serverAddr, '\0', sizeof(serverAddr));
 
    serverAddr.sin_family = AF_INET;

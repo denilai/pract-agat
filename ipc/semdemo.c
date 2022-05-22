@@ -5,7 +5,6 @@
 #include <sys/ipc.h> 
 #include <sys/sem.h>
 
-//for more tutorials on C, C++, STL, DS visit www.ProDeveloperTutorial.com
 
 int main(void)
 {

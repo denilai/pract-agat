@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include<string.h>
+#include <string.h>
 #include <sys/types.h>
 
 
 int main(void)
 {
         int fd[2], nbytes;
-        char string[] = "Организуем межпроцессное взаимодействие!\n";
-        char readbuffer[80]; pipe(fd);
+        char string[] = "IPC organized successfully!\n";
+        char readbuffer[80]; 
+        pipe(fd);
         pid_t childpid;
         childpid = fork();
         //создать дочерний процесс
@@ -32,7 +33,8 @@ int main(void)
           /* Родительский процесс закрывает дескриптор для записи*/ 
           close(fd[1]);
           /* Чтение строки из канала */ 
-          nbytes = read(fd[0], readbuffer, sizeof(readbuffer)); printf("Строка, полученная от процесса %d: %s", childpid, readbuffer);
+          nbytes = read(fd[0], readbuffer, sizeof(readbuffer)); 
+          printf("The string received from the process %d: %s", childpid, readbuffer);
         }
         return(0);
 }
